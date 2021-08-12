@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class TennisCoach implements Coach {
     @Autowired
     @Qualifier("randomFortuneService")
@@ -36,4 +35,14 @@ public class TennisCoach implements Coach {
 //        System.out.println(">> TennisCoach: inside setter method - doSomeCrazyStuff");
 //        this.fortuneService = fortuneService;
 //    }
+
+    @PostConstruct
+    public void doMyStartupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
+    }
+
+    @PreDestroy
+    public void doMyCleanupStuff(){
+        System.out.println(">> TennisCoach: inside of doMyCleanupStuff()");
+    }
 }
