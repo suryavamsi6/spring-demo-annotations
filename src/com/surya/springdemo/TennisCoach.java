@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
-
+    @Autowired
     private FortuneService fortuneService;
 
     public TennisCoach(){
@@ -27,9 +27,9 @@ public class TennisCoach implements Coach {
         return fortuneService.getFortune();
     }
 
-    @Autowired
-    public void doSomeCrazyStuff(FortuneService fortuneService) {
-        System.out.println(">> TennisCoach: inside setter method - doSomeCrazyStuff");
-        this.fortuneService = fortuneService;
-    }
+
+//    public void doSomeCrazyStuff(FortuneService fortuneService) {
+//        System.out.println(">> TennisCoach: inside setter method - doSomeCrazyStuff");
+//        this.fortuneService = fortuneService;
+//    }
 }
